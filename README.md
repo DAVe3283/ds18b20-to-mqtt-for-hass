@@ -99,6 +99,12 @@ If any changes are made to `config.py`, the service will need restarted to apply
 sudo service ds18b20-to-mqtt restart
 ```
 
+# Logging
+
+The service uses the standard system logs.
+* `journalctl --unit ds18b20-to-mqtt.service` will display the full log.
+* `sudo service ds18b20-to-mqtt status` will display the latest few lines of output.
+
 [DAVe3283/rtl_433-to-mqtt-for-hass]: https://github.com/DAVe3283/rtl_433-to-mqtt-for-hass
 [paho-mqtt]: https://pypi.org/project/paho-mqtt/
 [pip]: https://pip.pypa.io/en/stable/

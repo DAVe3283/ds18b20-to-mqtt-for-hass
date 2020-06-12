@@ -64,7 +64,7 @@ def get_ids():
     return device_folders
 
 def base_topic(rom):
-    return f'{MQTT_TOPIC}/sensor/ds18b20/{rom}'
+    return f'homeassistant/sensor/ds18b20/{rom}'
 
 def send_update(client, rom, tempC):
     print(f'Update: {rom} C={tempC:3.3f}')
@@ -154,12 +154,12 @@ def main():
     if (MQTT_TLS):
         dprint('Using MQTT with TLS')
         if (MQTT_ROOT_CA):
-            dprint(f"Using specific CA cert(s) for MQTT TLS: '{MQTT_ROOT_CA}'")
+            print(f"Using specific CA cert(s) for MQTT TLS: '{MQTT_ROOT_CA}'")
             mqttc.tls_set(ca_certs=MQTT_ROOT_CA)
         else:
             mqttc.tls_set()
     else:
-        eprint('Using insecure MQTT (no TLS)')
+        print('Using insecure MQTT (no TLS)')
     connect_mqtt(mqttc)
     mqttc.loop_start()
 
