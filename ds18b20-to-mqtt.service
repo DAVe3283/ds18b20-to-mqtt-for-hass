@@ -1,0 +1,14 @@
+[Unit]
+Description=DS18B20 1-Wire temperature sensor to MQTT gateway
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=your_username
+ExecStart=/usr/bin/python3 /home/your_username/ds18b20-to-mqtt-for-hass/ds18b20-mqtt-bridge.py
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
